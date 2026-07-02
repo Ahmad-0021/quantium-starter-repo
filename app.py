@@ -34,14 +34,9 @@ app.layout = html.Div(
             children=[
                 # Styled Header
                 html.H1(
+                    id='app-header',  # Add this unique identifier
                     children='Soul Foods: Pink Morsel Sales Performance Tracker',
-                    style={
-                        'textAlign': 'center',
-                        'color': '#1a202c',
-                        'marginBottom': '10px',
-                        'fontWeight': '700',
-                        'fontSize': '2rem'
-                    }
+                    style={'textAlign': 'center', 'color': '#1a202c'}
                 ),
 
                 # Context Subtitle
@@ -82,32 +77,21 @@ app.layout = html.Div(
                             options=[
                                 {'label': ' All Regions', 'value': 'all'},
                                 {'label': ' North', 'value': 'north'},
-                                {'label': ' East', 'value': 'east'},
                                 {'label': ' South', 'value': 'south'},
-                                {'label': ' West', 'value': 'west'}
+                                {'label': ' East', 'value': 'east'},
+                                {'label': ' West', 'value': 'west'},
                             ],
-                            value='all',  # Initial value defaults to 'all'
-                            inline=True,  # Displays options horizontally
-                            labelStyle={
-                                'marginRight': '25px',
-                                'color': '#2d3748',
-                                'fontSize': '1rem',
-                                'cursor': 'pointer',
-                                'fontWeight': '500'
-                            },
-                            style={'display': 'inline-block'}
-                        )
+                            value='all',
+                            inline=True
+                        ),
                     ]
                 ),
 
                 # Graph Placeholder Component
                 html.Div(
-                    dcc.Graph(id='sales-line-chart'),
-                    style={
-                        'border': '1px solid #edf2f7',
-                        'borderRadius': '12px',
-                        'overflow': 'hidden'
-                    }
+                    dcc.Graph(
+                        id='sales-line-chart'  # Already defined in the previous step
+                    )
                 )
             ]
         )
